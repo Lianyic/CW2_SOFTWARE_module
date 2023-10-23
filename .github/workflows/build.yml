@@ -15,7 +15,7 @@ jobs:
       - name: Run flake8
         run: flake8 api/
       - name: Install flask
-        run: pip instal flask
+        run: pip install flask
       - name: Install pytest
         run: pip install pytest
       - name: Run pytest
