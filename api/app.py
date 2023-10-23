@@ -14,15 +14,14 @@ def submit():
     return render_template("hello.html", name=input_name, age=input_age)
 
 
-@app.route("/query")
-def query():
-    query = request.args.get('q')
-    result = process_query(query)
+@app.route("/query/<q>")
+def query(q):
+    result = process_query(q)
     return result
 
 
-def process_query(q):
-    if q == "dinosaurs":
+def process_query(query):
+    if query == "dinosaurs":
         return "Dinosaurs ruled the Earth"
-    if q == "asteroids":
+    if query == "asteroids":
         return "Unknown"
