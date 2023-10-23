@@ -19,7 +19,7 @@ def submit():
   
 def process_query(q):
     if q=="dinosaurs":
-        return "Dinosaurs ruled the Earth 200 million years ago"
+        return "Dinosaurs ruled the Earth"
     if q=="asteroids":
         return "Unknown"
     
