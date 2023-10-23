@@ -26,4 +26,3 @@ def process_query(q):
         return "Dinosaurs ruled the Earth"
     if q == "asteroids":
         return "Unknown"
-
