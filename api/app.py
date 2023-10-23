@@ -16,14 +16,14 @@ def submit():
 
 @app.route("/query")
 def query():
-  query=request.args.get('q')
-  result=process_query(query)
-  return result
-  
+    query = request.args.get('q')
+    result = process_query(query)
+    return result
+
+
 def process_query(q):
-    if q=="dinosaurs":
+    if q == "dinosaurs":
         return "Dinosaurs ruled the Earth"
-    if q=="asteroids":
+    if q == "asteroids":
         return "Unknown"
-    
     
