@@ -36,6 +36,7 @@ def get_github_repo(username):
     else:
         print("Failed to fetch GitHub repositories")
 
+
 def process_query(query):
     if query == "dinosaurs":
         return "Dinosaurs ruled the Earth"
