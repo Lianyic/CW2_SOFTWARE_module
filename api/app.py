@@ -23,18 +23,14 @@ def github_form():
 @app.route("/hello_github_user", methods=["POST"])
 def hello_github_user():
     username = request.form.get("username")
-    return render_template("hello_github_user.html", username=username)
-
-
-@app.route("/github_repo/<username>")
-def get_github_repo(username):
-    response = request.get(f"https://api.github.com/users/{username}/repos")
+    response = requests.get(f"https://api.github.com/users/{username}/repos")
     if response.status_code == 200:
         repos = response.json()
-        for repo in repos:
-            print(repo["full_name"])
+        return render_template("hello_github_user.html",
+                       username=username,
+                       repos=repos)
     else:
-        print("Failed to fetch GitHub repositories")
+        return "Failed to fetch GitHub repositories"
 
 
 def process_query(query):

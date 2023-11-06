@@ -6,10 +6,10 @@
     <title>GitHub Repositories</title>
 </head>
 <body>
-    <h1>GitHub Repositories</h1>
+    <h1>GitHub Repositories for {{ username }}</h1>
     <ul>
         {% for repo in repos %}
-            <li>{{ repo.full_name }} - Last updated: {{ repo.updated_at }}</li>
+            <li>{{ repo.name }} - Last updated: {{ repo.updated_at }}</li>
         {% endfor %}
     </ul>
 </body>
