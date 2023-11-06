@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request
+import requests
+
 app = Flask(__name__)
 
 
@@ -23,6 +25,16 @@ def github_form():
 def hello_github_user():
     username = request.form.get("username")
     return render_template("hello_github_user.html", username=username)
+
+
+@app.route("/github_repositories/<username>")
+def get_github_repositories(username):
+    response = requests.get(f"https://api.github.com/users/Lianyic/repos")
+    if response.status_code == 200:
+        repositories = response.json()
+        return render_template("github_repositories.html", repositories=repositories)
+    else:
+        return "Failed to fetch GitHub repositories"
 
 
 def process_query(query):
