@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-import requests
 
 app = Flask(__name__)
 
@@ -29,7 +28,7 @@ def hello_github_user():
 
 @app.route("/github_repo/<username>")
 def get_github_repo(username):
-    response = requests.get(f"https://api.github.com/users/{username}/repos")
+    response = request.get(f"https://api.github.com/users/{username}/repos")
     if response.status_code == 200:
         repo = response.json()
         return render_template("github_repo.html", repo=repo)
