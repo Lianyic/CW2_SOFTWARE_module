@@ -31,7 +31,7 @@ def hello_github_user():
             "hello_github_user.html", username=username, repos=repos
         )
     else:
-        return "Failed to fetch GitHub repositories"
+        return "Failedd to fetch GitHub repositories"
 
 
 def process_query(query):
