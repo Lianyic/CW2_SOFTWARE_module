@@ -30,11 +30,11 @@ def hello_github_user():
 def get_github_repo(username):
     response = request.get(f"https://api.github.com/users/{username}/repos")
     if response.status_code == 200:
-        repo = response.json()
-        return render_template("github_repo.html", repo=repo)
+        repos = response.json()
+        for repo in repos:
+            print(repo["full_name"])
     else:
-        return "Failed to fetch GitHub repositories"
-
+        print("Failed to fetch GitHub repositories")
 
 def process_query(query):
     if query == "dinosaurs":
