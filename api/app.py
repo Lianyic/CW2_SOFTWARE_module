@@ -27,13 +27,12 @@ def hello_github_user():
     return render_template("hello_github_user.html", username=username)
 
 
-@app.route("/github_repositories/<username>")
-def get_github_repositories(username):
+@app.route("/github_repo/<username>")
+def get_github_repo(username):
     response = requests.get(f"https://api.github.com/users/Lianyic/repos")
     if response.status_code == 200:
-        repositories = response.json()
-        return render_template("github_repositories.html", rep\
-                               ositories=repositories)
+        repo = response.json()
+        return render_template("github_repo.html", repo=repo)
     else:
         return "Failed to fetch GitHub repositories"
 
