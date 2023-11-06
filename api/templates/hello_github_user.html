@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello GitHub User</title>
+    <title>GitHub Repositories</title>
 </head>
 <body>
-    <h1>Hello {{ username }}</h1>
+    <h1>GitHub Repositories</h1>
     <ul>
-        {% for repo_name in repo_names %}
-        <li>{{ repo_name }}</li>
+        {% for repo in repos %}
+            <li>{{ repo.full_name }} - Last updated: {{ repo.updated_at }}</li>
         {% endfor %}
     </ul>
 </body>
