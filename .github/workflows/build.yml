@@ -39,7 +39,7 @@ jobs:
 
 
   deploy-to-vercel:
-    needs: python-formatting
+    needs: unit-testing
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
