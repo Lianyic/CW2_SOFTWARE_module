@@ -26,7 +26,9 @@ def hello_github_user():
     response = request.get(f"https://api.github.com/users/{username}/repos")
     if response.status_code == 200:
         repos = response.json()
-        return render_template("hello_github_user.html",username=username,repos=repos)
+        return render_template(
+            "hello_github_user.html", username=username, repos=repos
+        )
     else:
         return "Failed to fetch GitHub repositories"
 
